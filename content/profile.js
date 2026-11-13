@@ -1,0 +1,254 @@
+/**
+ * Krishna Tiwari — website content
+ * ============================================================
+ * THIS IS THE FILE TO EDIT when you want to change the site.
+ *
+ * How to edit on GitHub (no coding tools needed):
+ *   1. Open this file: content/profile.js
+ *   2. Click the pencil icon (Edit).
+ *   3. Change only the text inside the quotes "like this".
+ *      Keep the commas, brackets [ ] and braces { } as they are.
+ *   4. Click Commit changes. If the site is on GitHub Pages,
+ *      it will update in about a minute.
+ *
+ * Tips:
+ *   - Use straight quotes " ", not curly quotes “ ”.
+ *   - If a line of text itself contains a quote, write it as \".
+ *   - Do not add a phone number or home street address here.
+ *   - To replace the resume PDF, overwrite
+ *     assets/Krishna_Tiwari_Resume.pdf and leave this path as-is.
+ *
+ * You can also open admin.html in a browser for a form, a live
+ * preview, and a Download button that produces an updated copy
+ * of this file.
+ * ============================================================
+ */
+window.PROFILE = {
+  "name": "Krishna Tiwari",
+  "headline": "Lead QA Engineer | SDET | Test Automation Lead",
+  "location": "Singapore",
+  "summary": "Lead QA Engineer and SDET with nearly 12 years of experience across Delivery Hero (Foodpanda), Adobe, Nagarro, GlobalLogic (client: Google) and HCL. Leads a 5-person QA team and owns a global QA and release strategy used across 18 countries and 5 e-commerce brands. Built 6 automation frameworks and projects from scratch with Playwright, Cypress, Selenium, pytest and Postman, and applies agentic AI (Claude, Gemini) to test-output verification and log analysis.",
+  "site": {
+    "title": "Krishna Tiwari — Lead QA Engineer | SDET | Test Automation Lead",
+    "description": "Lead QA Engineer and SDET based in Singapore, with nearly 12 years of experience at Delivery Hero (Foodpanda), Adobe, Nagarro, GlobalLogic and HCL. Specialises in test automation, QA leadership and release strategy.",
+    "url": ""
+  },
+  "contact": {
+    "email": "krishnatiwaricontact@gmail.com",
+    "github": "https://github.com/krishnaatfoodpanda",
+    "githubLabel": "github.com/krishnaatfoodpanda",
+    "linkedin": "https://www.linkedin.com/in/thebestqa/",
+    "linkedinLabel": "linkedin.com/in/thebestqa",
+    "resume": "assets/Krishna_Tiwari_Resume.pdf",
+    "resumeLabel": "Download resume"
+  },
+  "highlights": [
+    {
+      "value": "Nearly 12",
+      "label": "Years of experience in QA, SDET and software engineering"
+    },
+    {
+      "value": "5-person",
+      "label": "QA team led at Delivery Hero, covering vendor performance in adtech"
+    },
+    {
+      "value": "18 countries",
+      "label": "And 5 e-commerce brands using the global QA and release strategy"
+    },
+    {
+      "value": "6",
+      "label": "Automation frameworks and projects built from scratch"
+    },
+    {
+      "value": "57%",
+      "label": "Reduction in post-rollout bugs after the new QA workflow"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Delivery Hero (Foodpanda Singapore)",
+      "location": "Singapore",
+      "current": true,
+      "roles": [
+        {
+          "title": "Lead Software Engineer, Delivery Hero",
+          "dates": "Feb 2022 – Present"
+        },
+        {
+          "title": "Lead QA Developer, Foodpanda Singapore (Delivery Hero)",
+          "dates": "Feb 2021 – Present"
+        }
+      ],
+      "bullets": [
+        "Manage a 5-person QA team delivering end-to-end automation and QA for the vendor performance segment of Delivery Hero global solutions, in the adtech business line (promotions and discounts).",
+        "Architected the QA process from the ground up and developed a global software QA and release strategy used across 18 countries and 5 e-commerce brands.",
+        "Reduced post-rollout bugs by 57% and established a QA workflow followed by teams across continents.",
+        "Built 3 automation frameworks for API, UI and security testing using Cypress, Playwright, Postman and Burp Suite, including 2 Cypress frameworks in JavaScript/TypeScript.",
+        "Configured and hosted end-to-end CI/CD on Drone and Jenkins for automated test execution and reporting.",
+        "Identified a high-criticality impact on T&C estimates and order processing/stream while testing the Talabat sponsored-deals rollout to PedidosYa, where the budget model changed from orders per day to a monthly monetary budget; the release was pushed back based on these findings.",
+        "Introduced AI-enabled test frameworks and agentic AI workflows (Claude, Gemini) with log hooks to verify test output.",
+        "Drove test-driven development (TDD) as the core approach to building and testing products within Agile teams."
+      ]
+    },
+    {
+      "company": "Adobe Systems",
+      "location": "Noida, India",
+      "current": false,
+      "roles": [
+        {
+          "title": "Senior Software Engineer",
+          "dates": "Feb 2019 – Feb 2021"
+        }
+      ],
+      "bullets": [
+        "Developed systems in Python and C++ for Photoshop Express, bringing the Photoshop experience to mobile; worked with Appium, XCUITest and Swift.",
+        "Built a Jenkins tracker for iOS app (IPA) size and a content integrator to manage stickers, themes and dynamic in-app content, including Apple On-Demand Resources (ODR) and in-house servers.",
+        "Analysed data from Adobe Target and other feature-rollout tools to maintain feature stability and quality worldwide.",
+        "Orchestrated large-scale software deployments, including feature testing and code fixes."
+      ]
+    },
+    {
+      "company": "Nagarro",
+      "location": "Gurugram, India",
+      "current": false,
+      "roles": [
+        {
+          "title": "Senior Software Developer",
+          "dates": "Jun 2018 – Jan 2019"
+        }
+      ],
+      "bullets": [
+        "Led development of an automation testing framework and test scripts for a restaurant ordering app and a backend tool that takes and reports orders from thousands of users daily.",
+        "Automated web and mobile testing with Selenium, Appium (iOS and Android), Cucumber (BDD) and Jenkins.",
+        "Modernized food-delivery modules to improve performance, responsiveness and usability on mobile platforms."
+      ]
+    },
+    {
+      "company": "GlobalLogic",
+      "location": "Gurugram, India (client: Google)",
+      "current": false,
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "dates": "Jun 2017 – Jun 2018"
+        }
+      ],
+      "bullets": [
+        "Developed the Google Books data-fetching pipeline that processed petabytes of data on Google data platforms and BigQuery, using Python, Go and C++.",
+        "Reduced book data processing time by 25 seconds by adding an ONIX XML processing system."
+      ]
+    },
+    {
+      "company": "HCL Technologies",
+      "location": "Noida, India",
+      "current": false,
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "dates": "Feb 2015 – Jun 2017"
+        }
+      ],
+      "bullets": [
+        "Developed test automation for Bank of Ireland's Retail UK bond reinvestment and investment product (BFSI), covering 3 modules with HP QTP/UFT, HP LoadRunner, HP ALM and Confluence.",
+        "Built automation scripts and test suites in Selenium (Python) and Appium (Android and iOS) for a retail project, tracked in Jira."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": "Test Automation",
+      "items": [
+        "Playwright",
+        "Cypress (4 yrs)",
+        "Selenium WebDriver (6 yrs)",
+        "pytest (4 yrs)",
+        "Appium",
+        "XCUITest",
+        "BDD / Cucumber (5 yrs)",
+        "UI, API and security test automation",
+        "Mobile test automation (iOS, Android)"
+      ]
+    },
+    {
+      "group": "API, Data and Security Testing",
+      "items": [
+        "Postman",
+        "End-to-end API testing",
+        "MongoDB (4 yrs)",
+        "SQL",
+        "Burp Suite",
+        "Security testing",
+        "Performance testing (HP LoadRunner)"
+      ]
+    },
+    {
+      "group": "Programming",
+      "items": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "C# (2 yrs)",
+        "C++",
+        "SQL"
+      ]
+    },
+    {
+      "group": "CI/CD and Tools",
+      "items": [
+        "Jenkins",
+        "Drone CI",
+        "CI/CD pipelines",
+        "JIRA",
+        "HP ALM",
+        "HP UFT/QTP",
+        "Confluence",
+        "PyCharm"
+      ]
+    },
+    {
+      "group": "AI in Testing",
+      "items": [
+        "AI-enabled test frameworks (2 yrs)",
+        "Agentic AI with Claude and Gemini (3 yrs)",
+        "AI hooks for log analysis and test-output verification"
+      ]
+    },
+    {
+      "group": "QA Leadership",
+      "items": [
+        "Test strategy",
+        "Release strategy",
+        "QA process design",
+        "Test management",
+        "Team leadership",
+        "Test-driven development (TDD)",
+        "Agile",
+        "Product QA"
+      ]
+    },
+    {
+      "group": "Domains",
+      "items": [
+        "Real-time order management and discount billing systems (6 yrs)",
+        "Adtech (promotions and discounts)",
+        "Food delivery and e-commerce",
+        "Mobile apps",
+        "BFSI"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech, Computer Science Engineering",
+      "school": "Rajasthan Technical University, Kota, India",
+      "dates": "Aug 2010 – Aug 2014"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certified Ethical Hacker",
+      "issuer": "IIT Kanpur and Kyrion Digital Securities",
+      "dates": "Mar 2014"
+    }
+  ]
+};

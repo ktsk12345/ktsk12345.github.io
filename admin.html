@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit profile — Krishna Tiwari</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --admin-bar: 3.4rem; }
+    body.admin {
+      margin: 0;
+      background: #ece7df;
+      min-height: 100vh;
+    }
+    .admin-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 0.75rem;
+      min-height: var(--admin-bar);
+      padding: 0.5rem 1rem;
+      background: #123d38;
+      color: #f4f0ea;
+    }
+    .admin-bar h1 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .admin-bar a {
+      color: #f4f0ea;
+      margin-left: auto;
+      font-size: 0.88rem;
+    }
+    .admin-status {
+      font-size: 0.85rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #1b5a53;
+    }
+    .admin-status.is-error { background: #8a2f16; }
+    .admin-bar button {
+      font: inherit;
+      font-weight: 650;
+      font-size: 0.88rem;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      cursor: pointer;
+      background: #f4f0ea;
+      color: #123d38;
+    }
+    .admin-bar button.secondary {
+      background: transparent;
+      color: #f4f0ea;
+      border: 1px solid rgba(244, 240, 234, 0.45);
+    }
+    .admin-shell {
+      display: grid;
+      grid-template-columns: minmax(20rem, 26rem) 1fr;
+      gap: 0;
+      min-height: calc(100vh - var(--admin-bar));
+    }
+    .admin-editor {
+      border-right: 1px solid #ddd4c7;
+      background: #fbf8f3;
+      padding: 1rem 1rem 2rem;
+      overflow: auto;
+      max-height: calc(100vh - var(--admin-bar));
+    }
+    .admin-editor h2 {
+      margin: 1.1rem 0 0.55rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #123d38;
+    }
+    .admin-editor h2:first-child { margin-top: 0.2rem; }
+    .admin-help {
+      margin: 0 0 1rem;
+      font-size: 0.88rem;
+      color: #5e574e;
+    }
+    label.field {
+      display: block;
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #3f3a34;
+    }
+    label.field input,
+    label.field textarea,
+    #json-editor {
+      display: block;
+      width: 100%;
+      margin-top: 0.3rem;
+      font: 0.92rem/1.45 var(--sans);
+      padding: 0.5rem 0.6rem;
+      border: 1px solid #c9bfb0;
+      border-radius: 8px;
+      background: #fff;
+      color: #1a1814;
+    }
+    #json-editor {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      min-height: 28rem;
+      resize: vertical;
+    }
+    label.field textarea { min-height: 7.5rem; resize: vertical; }
+    .admin-preview-wrap {
+      overflow: auto;
+      max-height: calc(100vh - var(--admin-bar));
+      background: #f4f0ea;
+    }
+    .admin-preview-label {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 0.45rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5e574e;
+      background: rgba(244, 240, 234, 0.92);
+      border-bottom: 1px solid #ddd4c7;
+    }
+    #preview .site-header { position: static; }
+    @media (max-width: 860px) {
+      .admin-shell { grid-template-columns: 1fr; }
+      .admin-editor, .admin-preview-wrap { max-height: none; }
+      .admin-editor { border-right: 0; border-bottom: 1px solid #ddd4c7; }
+    }
+  </style>
+</head>
+<body class="admin">
+  <div class="admin-bar">
+    <h1>Profile editor</h1>
+    <span id="status" class="admin-status">Ready</span>
+    <button type="button" id="btn-apply" class="secondary">Apply and preview</button>
+    <button type="button" id="btn-js">Download profile.js</button>
+    <button type="button" id="btn-json" class="secondary">Download profile.json</button>
+    <a href="index.html">View the public page</a>
+  </div>
+  <div class="admin-shell">
+    <aside class="admin-editor">
+      <h2>Quick fields</h2>
+      <p class="admin-help">Change these, then edit the JSON below for jobs, skills, education and highlights. Nothing is saved on a server — download the file and replace <code>content/profile.js</code> in your folder or GitHub repo.</p>
+      <label class="field">Name<input id="f-name" type="text" autocomplete="name"></label>
+      <label class="field">Headline<input id="f-headline" type="text"></label>
+      <label class="field">Location<input id="f-location" type="text"></label>
+      <label class="field">Email<input id="f-email" type="email" autocomplete="email"></label>
+      <label class="field">GitHub URL<input id="f-github" type="url"></label>
+      <label class="field">LinkedIn URL<input id="f-linkedin" type="url"></label>
+      <label class="field">Resume PDF path<input id="f-resume" type="text"></label>
+      <label class="field">Summary<textarea id="f-summary"></textarea></label>
+
+      <h2>Full profile data</h2>
+      <p class="admin-help">This is the complete profile. Keep the structure (quotes, commas, brackets). Click Apply and preview after you edit, or download when it says Valid.</p>
+      <textarea id="json-editor" spellcheck="false" aria-label="Full profile JSON"></textarea>
+    </aside>
+    <section class="admin-preview-wrap">
+      <div class="admin-preview-label">Live preview</div>
+      <div id="preview"></div>
+    </section>
+  </div>
+
+  <script src="content/profile.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var FILE_HEADER =
+        "/**\n" +
+        " * Krishna Tiwari — website content\n" +
+        " * ============================================================\n" +
+        " * THIS IS THE FILE TO EDIT when you want to change the site.\n" +
+        " *\n" +
+        " * How to edit on GitHub (no coding tools needed):\n" +
+        " *   1. Open this file: content/profile.js\n" +
+        " *   2. Click the pencil icon (Edit).\n" +
+        " *   3. Change only the text inside the quotes \"like this\".\n" +
+        " *      Keep the commas, brackets [ ] and braces { } as they are.\n" +
+        " *   4. Click Commit changes. If the site is on GitHub Pages,\n" +
+        " *      it will update in about a minute.\n" +
+        " *\n" +
+        " * You can also open admin.html in a browser for a form, a live\n" +
+        " * preview, and a Download button that produces an updated copy\n" +
+        " * of this file.\n" +
+        " * ============================================================\n" +
+        " */\n" +
+        "window.PROFILE = ";
+
+      var fields = {
+        name: document.getElementById("f-name"),
+        headline: document.getElementById("f-headline"),
+        location: document.getElementById("f-location"),
+        email: document.getElementById("f-email"),
+        github: document.getElementById("f-github"),
+        linkedin: document.getElementById("f-linkedin"),
+        resume: document.getElementById("f-resume"),
+        summary: document.getElementById("f-summary")
+      };
+      var editor = document.getElementById("json-editor");
+      var statusEl = document.getElementById("status");
+      var preview = document.getElementById("preview");
+      var syncing = false;
+      var lastValid = null;
+
+      function setStatus(text, isError) {
+        statusEl.textContent = text;
+        statusEl.classList.toggle("is-error", !!isError);
+      }
+
+      function pretty(obj) {
+        return JSON.stringify(obj, null, 2);
+      }
+
+      function fillFields(data) {
+        var contact = data.contact || {};
+        fields.name.value = data.name || "";
+        fields.headline.value = data.headline || "";
+        fields.location.value = data.location || "";
+        fields.email.value = contact.email || "";
+        fields.github.value = contact.github || "";
+        fields.linkedin.value = contact.linkedin || "";
+        fields.resume.value = contact.resume || "";
+        fields.summary.value = data.summary || "";
+      }
+
+      function applyFieldsTo(data) {
+        data.name = fields.name.value.trim();
+        data.headline = fields.headline.value.trim();
+        data.location = fields.location.value.trim();
+        data.summary = fields.summary.value.trim();
+        data.contact = data.contact || {};
+        data.contact.email = fields.email.value.trim();
+        data.contact.github = fields.github.value.trim();
+        data.contact.linkedin = fields.linkedin.value.trim();
+        data.contact.resume = fields.resume.value.trim();
+        return data;
+      }
+
+      function parseEditor() {
+        try {
+          var data = JSON.parse(editor.value);
+          if (!data || typeof data !== "object" || Array.isArray(data)) {
+            throw new Error("The file must be one profile object, not a list.");
+          }
+          return { data: data };
+        } catch (err) {
+          return { error: err.message };
+        }
+      }
+
+      function previewData(data) {
+        lastValid = data;
+        if (window.KrishnaSite) {
+          window.KrishnaSite.mount(preview, data, { skipSeo: true });
+        }
+      }
+
+      function fromEditor() {
+        if (syncing) return;
+        var result = parseEditor();
+        if (result.error) {
+          setStatus("JSON error: " + result.error, true);
+          return null;
+        }
+        syncing = true;
+        fillFields(result.data);
+        syncing = false;
+        previewData(result.data);
+        setStatus("Valid");
+        return result.data;
+      }
+
+      function fromFields() {
+        if (syncing) return;
+        var result = parseEditor();
+        var data = result.data ? result.data : (lastValid ? JSON.parse(JSON.stringify(lastValid)) : null);
+        if (!data) {
+          setStatus("Fix the JSON before editing the quick fields.", true);
+          return;
+        }
+        applyFieldsTo(data);
+        syncing = true;
+        editor.value = pretty(data);
+        syncing = false;
+        previewData(data);
+        setStatus("Valid");
+      }
+
+      function download(filename, text) {
+        var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function currentDataOrAlert() {
+        var data = fromEditor();
+        if (!data) {
+          setStatus("Cannot download until the JSON is valid.", true);
+          return null;
+        }
+        return applyFieldsTo(data);
+      }
+
+      if (!window.PROFILE) {
+        setStatus("Could not load content/profile.js", true);
+        editor.value = "{\n  \n}\n";
+        return;
+      }
+
+      lastValid = window.PROFILE;
+      editor.value = pretty(window.PROFILE);
+      fillFields(window.PROFILE);
+      previewData(window.PROFILE);
+      setStatus("Valid");
+
+      editor.addEventListener("input", function () {
+        window.clearTimeout(fromEditor.timer);
+        fromEditor.timer = window.setTimeout(fromEditor, 400);
+      });
+      Object.keys(fields).forEach(function (key) {
+        fields[key].addEventListener("input", function () {
+          window.clearTimeout(fromFields.timer);
+          fromFields.timer = window.setTimeout(fromFields, 250);
+        });
+      });
+      document.getElementById("btn-apply").addEventListener("click", fromEditor);
+      document.getElementById("btn-json").addEventListener("click", function () {
+        var data = currentDataOrAlert();
+        if (data) download("profile.json", pretty(data) + "\n");
+      });
+      document.getElementById("btn-js").addEventListener("click", function () {
+        var data = currentDataOrAlert();
+        if (data) download("profile.js", FILE_HEADER + pretty(data) + ";\n");
+      });
+    })();
+  </script>
+</body>
+</html>
