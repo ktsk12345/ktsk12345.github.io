@@ -83,19 +83,19 @@
 
     var ctas = "";
     if (contact.github) {
-      ctas += '<a class="btn" href="' + esc(contact.github) + '" rel="noopener noreferrer">' +
+      ctas += '<a class="btn" href="' + esc(contact.github) + '" target="_blank" rel="noopener noreferrer">' +
         icon("github") + "<span>GitHub</span></a>";
     }
     if (contact.linkedin) {
-      ctas += '<a class="btn btn-ghost" href="' + esc(contact.linkedin) + '" rel="noopener noreferrer">' +
+      ctas += '<a class="btn btn-ghost" href="' + esc(contact.linkedin) + '" target="_blank" rel="noopener noreferrer">' +
         icon("linkedin") + "<span>LinkedIn</span></a>";
     }
     if (contact.email) {
-      ctas += '<a class="btn btn-ghost" href="mailto:' + esc(contact.email) + '">' +
+      ctas += '<a class="btn btn-ghost" href="mailto:' + esc(contact.email) + '" target="_blank" rel="noopener">' +
         icon("email") + "<span>Email</span></a>";
     }
     if (contact.resume) {
-      ctas += '<a class="btn btn-ghost" href="' + esc(contact.resume) + '" download>' +
+      ctas += '<a class="btn btn-ghost" href="' + esc(contact.resume) + '" target="_blank" rel="noopener">' +
         icon("download") + "<span>" + esc(contact.resumeLabel || "Download resume") + "</span></a>";
     }
 
@@ -149,19 +149,19 @@
 
     var contactBits = [];
     if (contact.email) {
-      contactBits.push('<a class="btn" href="mailto:' + esc(contact.email) + '">' + icon("email") +
+      contactBits.push('<a class="btn" href="mailto:' + esc(contact.email) + '" target="_blank" rel="noopener">' + icon("email") +
         "<span>" + esc(contact.email) + "</span></a>");
     }
     if (contact.github) {
-      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.github) + '" rel="noopener noreferrer">' +
+      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.github) + '" target="_blank" rel="noopener noreferrer">' +
         icon("github") + "<span>" + esc(contact.githubLabel || contact.github) + "</span></a>");
     }
     if (contact.linkedin) {
-      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.linkedin) + '" rel="noopener noreferrer">' +
+      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.linkedin) + '" target="_blank" rel="noopener noreferrer">' +
         icon("linkedin") + "<span>" + esc(contact.linkedinLabel || contact.linkedin) + "</span></a>");
     }
     if (contact.resume) {
-      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.resume) + '" download>' +
+      contactBits.push('<a class="btn btn-ghost" href="' + esc(contact.resume) + '" target="_blank" rel="noopener">' +
         icon("download") + "<span>" + esc(contact.resumeLabel || "Download resume") + "</span></a>");
     }
 
